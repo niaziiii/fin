@@ -1,19 +1,24 @@
-<template>
-  <div class="main">
+<template>    
+
+  <div class="main">  
+     <h1 class="intro">
+      <p>Make Private</p></h1>
+
     <div class="container">
+    
       <canvas id="editor"></canvas>
     </div>
 
     <div class="editor-tool">
       <div class="main-tool flex-grow">
-        <Tool :event="() => onClickZoom()" :iconClass="'fas fa-search fa-lg'" :active="currentTool==='zoom'">Zoom</Tool>
+        <Tool :event="() => onClickZoom()" :iconClass="'fa fa-search-plus sizefont '" :active="currentTool==='zoom'">Zoom</Tool>
         <div v-show="currentTool==='zoom'" class="subtool">
           <input type="range" name="zoom" id="zoomSlider" min="0" max="100" class="w-full" value="0" @change="onZoomDegreeChanged" />
         </div>
 
         <Tool
           :event="() => onClickApplyCrop()"
-          :iconClass="'far fa-check-circle fa-lg'"
+          :iconClass="'far fa-check-circle'"
           v-show="currentTool==='crop'"
           :class="{ 'active-tool': currentTool === 'crop' }"
            :active="currentTool==='crop'"
@@ -23,14 +28,14 @@
 
         <Tool
           :event="() => onClickCrop()"
-          :iconClass="'fas fa-crop-alt fa-lg'"
+          :iconClass="'fas fa-crop-alt sizefont '"
           v-show="currentTool!=='crop'"
           :active="false"
         >
           Crop
         </Tool>
         
-        <Tool :event="() => onClickMask()" :iconClass="'fas fa-mask fa-lg'" :active="currentTool==='mask'">Mask</Tool>
+        <Tool :event="() => onClickMask()" :iconClass="'fas fa-mask sizefont'" :active="currentTool==='mask'">Mask</Tool>
         <div v-show="currentTool==='mask'" class="subtool flex flex-row justify-between">
           <div id="mask1" class="mask-select" :class="{'active': currentSubTool==='mask_1'}" @click="onClickMaskType('mask_1')">
             <img src="../assets/images/mask_1.png" ref="mask1"/>
@@ -43,7 +48,7 @@
           </div>
         </div>
 
-        <Tool :event="() => onClickBlur()" :iconClass="'fas fa-stroopwafel fa-lg'" :active="currentTool==='blur'">Blur</Tool>
+        <Tool :event="() => onClickBlur()" :iconClass="'fas fa-stroopwafel sizefont'" :active="currentTool==='blur'">Blur</Tool>
         <div v-show="currentTool==='blur'" class="subtool">
           <input type="range" name="blur" id="blurSlider" min="0" max="100" class="w-full" value="0" @change="onBlurDegreeChanged" />
         </div>
@@ -51,12 +56,12 @@
       <div class="load-tool flex-grow-0">
         <ToolUpload
           :event="(e) => uploadImage(e)"
-          :iconClass="'fas fa-file-upload fa-lg'"
+          :iconClass="'fas fa-cloud-upload-alt sizefont'"
         >
           Upload
         </ToolUpload>
 
-        <Tool :event="() => saveImage()" :iconClass="'fas fa-save fa-lg'">Save</Tool>
+        <Tool :event="() => saveImage()" :iconClass="'fas fa-save sizefont'">Save</Tool>
       </div>
     </div>
   </div>
