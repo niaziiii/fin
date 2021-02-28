@@ -21,13 +21,22 @@ body {
     margin-left: 36%;
     margin-top: 3%;
     position: absolute;
+    @media (max-width: 500px) {
+        margin-left: 30%;
+    }
+    @media (max-width: 380px) {
+        margin-left: 25%;
+    }
+    @media (max-width: 300px) {
+        margin-left: 20%;
+    }
     p {
         font-weight: 800;
         border-radius: 30px;
         padding: 7px 25px;
         color: white;
         letter-spacing: 2px;
-        background-image: linear-gradient(to right top, #E921FB, #F43986);
+        background-image: linear-gradient(to top left, #F4392E, #E921A0);
     }
     @media (max-width: 769px) {
         margin-top: 3%;
